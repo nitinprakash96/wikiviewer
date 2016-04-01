@@ -1,1 +1,65 @@
 
+#title{
+  color: #E4F1FE !important;
+  transition: margin-top 0.5s;
+  font-size: 3em;
+  font-weight: 500;
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+
+
+#title.middle{
+  margin-top: 40vh;
+}
+
+body{
+  background-color: #27E1B5;
+}
+i.remove.icon:hover{
+  color: #db2828!important;
+  cursor: pointer;
+}
+#remove{
+  position: absolute;
+  display: inline-block;
+  right: 10px;
+  top: 0.6071em;
+}
+.searchmatch{
+  font-weight: bold !important;
+  background-color: #cde;
+}
+.ui.message{
+  border-radius: 1.2em;
+}
+.segment:hover{
+  cursor: pointer;
+  background-color: #ffe;
+}
+
+/* reduce the size of the input */
+.ui.container{
+  transition: width 0.4s;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.container {
+    width: 723px;
+  }
+}
+
+/* Small Monitor */
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .ui.container {
+    width: 733px;
+  }
+}
+
+/* Large Monitor */
+
+@media only screen and (min-width: 1200px) {
+  .ui.container {
+    width: 927px;
+  }
+}
