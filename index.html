@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>WikiViewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/Semantic-Org/Semantic-UI/2.0.8/dist/semantic.min.css'>
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Pacifico'>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+<body>
+
+<br>
+<div id='news' class="ui container" ng-app="FreeCodeCampModule" ng-controller="WikipediaViewer as control">
+<h1 id='title' ng-class='{middle: control.results.length == 0}' class='ui center aligned header'>WikiViewer</h1>
+
+
+<div class="ui search">
+  <div class="ui icon inverted fluid input">
+    <input id='search-input' ng-model='search' class="prompt" type="text" placeholder="Type to Search...">
+    <span id='remove'>
+      <i class="" ng-class="{'ui active small inline loader': control.loading, 'remove icon': !control.loading && search.length != 0, 'search icon': search.length == 0}"></i>
+    </span>
+  </div>
+</div>
+  <div class="ui segments" ng-if='control.results.length > 0'>
+    <div class="ui segment" ng-repeat="r in control.results">
+        <div class="ui items">
+        <div class="item" ng-click='control.goTo(r.id)'>
+          <div class="content">
+            <a id='{{r.id}}' class="header" target='_blank' href='https://en.wikipedia.org/wiki/{{r.title}}'>{{r.title}}</a>
+            <div class="meta">
+              <span ng-bind-html='r.snippet'></span>...
+            </div>
+            <div class="description">
+              <p></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- no results -->
+
+  </div>
+  <div class="ui red message" ng-if='search.length > 0 && control.results.length == 0 && !control.loading'>
+    <div class="header">
+      No results.
+    </div>
+    <ul class="list">
+      <li>Try typing something else.</li>
+    </ul>
+  </div>
+</div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.1.0/autocomplete.jquery.min.js'></script>
+    <script src='https://cdn.rawgit.com/Semantic-Org/Semantic-UI/2.0.8/dist/semantic.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-sanitize.min.js'></script>
+    <script src="js/index.js"></script>
+
+</body>
+</html>
